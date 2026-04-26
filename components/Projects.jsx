@@ -1,115 +1,129 @@
 "use client";
 
+import { useRef } from "react";
 import { useMemo, useState } from "react";
 import Form from "./Form";
 
-export default function Sample() {
+export default function Projects() {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const scrollRef = useRef(null);
 
-  const cards = useMemo(
-    () => [
-      {
-        id: "la-paloma",
-        image:
-          "https://res.cloudinary.com/dybw1km5u/image/upload/v1777091076/laa_ozeess.jpg",
-        badge: "COMPLETED PROJECT",
-        title: "LA PALOMA",
-        subtitle: "Luxury Villas",
-      },
-      {
-        id: "skyla",
-        image:
-          "https://res.cloudinary.com/dybw1km5u/image/upload/v1777091445/skyla_hqu04p.jpg",
-        title: "SKYLA",
-        subtitle: "Luxury Apartments",
-      },
-      {
-        id: "river",
-        image:
-          "https://res.cloudinary.com/dybw1km5u/image/upload/v1777091452/river_feqw6a.jpg",
-        title: "RIVER",
-        subtitle: "Premium Residences",
-      },
-    ],
-    []
-  );
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    const cardWidth = container.children[0].offsetWidth + 24;
+
+    container.scrollBy({
+      left: direction === "next" ? cardWidth : -cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const cards = [
+    {
+      title: "LA’PALOMA",
+      subtitle: "Luxury Villas",
+      image:
+        "https://res.cloudinary.com/dybw1km5u/image/upload/v1777118092/imgg_ep3tb4.webp",
+    },
+    {
+      title: "SKYLA",
+      subtitle: "Luxury Apartments",
+      image:
+        "https://res.cloudinary.com/dybw1km5u/image/upload/v1777140298/Rectangle_27_srptoh.png",
+    },
+    {
+      title: "RIVER EDGE",
+      subtitle: "Luxury Villas",
+      image:
+        "https://res.cloudinary.com/dybw1km5u/image/upload/v1777091452/river_feqw6a.jpg",
+    },
+  ];
 
   return (
-    <section className="relative w-full bg-[#FFF8EF] py-16">
+    <section className="w-full bg-[#FFF8EF] py-20">
 
-      {/* MAIN CONTAINER */}
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 flex flex-col lg:flex-row items-center gap-10">
+      <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row items-center gap-16 px-6 lg:px-16">
 
-        {/* LEFT CONTENT */}
-        <div className="w-full lg:w-1/2 space-y-6">
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#212121] font-light leading-tight">
+        {/* LEFT */}
+        <div className="lg:w-[35%] space-y-6">
+          <h2 className="text-4xl md:text-5xl font-light text-[#2d2d2d]">
             Our Projects
           </h2>
 
-          <p className="text-sm sm:text-base text-[#5C5C5C] max-w-md leading-relaxed">
+          <p className="text-[#6b6b6b]">
             We create refined, functional spaces where aesthetics meet purpose.
-            Each project is a dialogue between form and feeling - crafted with
-            precision, shaped by context, and inspired by timeless design principles.
+            Each project is a dialogue between form and feeling.
           </p>
 
           <button
             onClick={() => setIsFormOpen(true)}
-            className="px-6 py-2 border border-[#D9C7AE] text-[#A88344] text-xs tracking-[0.18em] uppercase hover:bg-[#fff3e4] transition"
+            className="text-[600] px-6 py-2 border border-[#C78800] text-[#C78800] text-xs uppercase hover:bg-[#fff3e4] transition"
           >
             VIEW ALL
           </button>
         </div>
 
-        {/* RIGHT CARDS (SCROLLABLE) */}
-        <div className="w-full lg:w-1/2 overflow-hidden">
+        {/* RIGHT */}
+        <div className="relative lg:w-[65%]">
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar">
+          {/* Buttons */}
+         <button
+            onClick={() => scroll("prev")}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 
+                      w-12 h-12 flex items-center justify-center
+                      bg-white rounded-full shadow-lg text-2xl"
+          >
+              ‹
+          </button>
 
-            {cards.map((c) => (
+          <button
+            onClick={() => scroll("next")}
+            className="absolute right-[-1] top-1/2 -translate-y-1/2 z-10 
+                      w-12 h-12 flex items-center justify-center
+                      bg-white rounded-full shadow-lg text-2xl"
+          >
+            ›
+          </button>
+
+          {/* Slider */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth px-10"
+          >
+            {cards.map((card, i) => (
               <div
-                key={c.id}
-                className="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] h-[260px] sm:h-[300px] md:h-[340px] relative rounded-lg overflow-hidden shrink-0"
+                key={i}
+                className="min-w-[75%] md:min-w-[60%] lg:min-w-[55%] h-[400px] rounded-xl overflow-hidden relative shrink-0"
               >
-                {/* Image */}
                 <img
-                  src={c.image}
-                  alt={c.title}
+                  src={card.image}
                   className="w-full h-full object-cover"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-black/40" />
 
-                {/* Badge */}
-                {c.badge && (
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 text-[10px] tracking-widest uppercase bg-[#C6902B] text-white">
-                      {c.badge}
-                    </span>
-                  </div>
-                )}
-
-                {/* Text */}
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-lg font-semibold tracking-wide">
-                    {c.title}
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-xl font-semibold">
+                    {card.title}
                   </h3>
-                  <p className="text-xs text-white/80">
-                    {c.subtitle}
+                  <p className="text-sm opacity-80">
+                    {card.subtitle}
                   </p>
+                </div>
+
+                <div className="absolute top-4 right-4">
+                  <span className="bg-[#C6902B] text-white text-[10px] px-3 py-1">
+                    COMPLETED PROJECT
+                  </span>
                 </div>
               </div>
             ))}
-
           </div>
+
         </div>
 
       </div>
-
-      {/* FORM POPUP */}
-      <Form isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
-
+        <Form isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </section>
   );
 }

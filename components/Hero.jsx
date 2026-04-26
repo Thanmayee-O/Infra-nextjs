@@ -58,11 +58,11 @@ export default function Hero() {
     {/* RIGHT → Buttons */}
     <div className="flex gap-4">
       
-      <button className="border border-white px-6 py-2 text-sm hover:bg-white hover:text-black transition">
+      <button className="border border-white px-6 py-3 text-sm hover:bg-white hover:text-black transition">
         EXPLORE PROJECTS
       </button>
 
-      <button className="bg-white text-black px-6 py-2 text-sm hover:bg-gray-200 transition">
+      <button className="bg-white text-black px-6 py-3 text-sm hover:bg-gray-200 transition">
         LET’S TALK
       </button>
 
