@@ -13,7 +13,7 @@ export default function Page(){
 
     {/* Overlay content */}
     <div className="relative z-10 text-white">
-        <h1>Your Content</h1>
+
     </div>
     </div>
     )

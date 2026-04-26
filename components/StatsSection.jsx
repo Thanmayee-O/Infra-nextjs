@@ -27,7 +27,7 @@ export default function StatsSection() {
               className="flex flex-col items-center justify-center text-center p-6 sm:p-8 hover:transform hover:scale-105 transition-transform duration-300"
             >
               {/* Number */}
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-3">
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-[500] text-white mb-2 md:mb-3">
                 {stat.number}
               </h3>
               {/* Label */}

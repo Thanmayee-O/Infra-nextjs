@@ -9,12 +9,12 @@ export default function LacasaVilla() {
       <div className="relative z-10 max-w-xl">
 
         {/* Subtitle */}
-        <p className="text-[14px] sm:text-[16px] md:text-[20px] text-[#DCBC82] mb-3 sm:mb-4 ml-1 uppercase font-[600p]">
+        <p className="text-[14px] sm:text-[16px] md:text-[20px] text-[#DCBC82] mb-3 sm:mb-4 ml-1 uppercase font-[600]">
           Featured Projects - 01
         </p>
 
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-[600] leading-[1.1] md:leading-[0.95] mt-2 font-Plus Jakarta Sans">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-[600] leading-[1.1] md:leading-[0.95] mt-2">
           LACASA VILLA
         </h1>
 

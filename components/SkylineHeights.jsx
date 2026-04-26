@@ -14,7 +14,7 @@ export default function RiverEdge() {
                 </p>
 
                 {/* Title */}
-                <h1 className="text-3xl sm:text-4xl md:text-[80px] font-[600] whitespace-normal md:whitespace-nowrap leading-[1.1] md:leading-[0.95] mt-2 font-Plus Jakarta Sans">
+                <h1 className="text-3xl sm:text-4xl md:text-[80px] font-[600] whitespace-normal md:whitespace-nowrap leading-[1.1] md:leading-[0.95] mt-2">
                     SKYLINE HEIGHTS
                 </h1>
 
