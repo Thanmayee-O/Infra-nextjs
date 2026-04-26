@@ -5,6 +5,16 @@
   --foreground: #171717;
 }
 
+/* Ensure full viewport coverage on mobile browsers with dynamic toolbars */
+html,
+body {
+  height: 100%;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -23,4 +33,161 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@theme inline {
+  --animate-zoom-out: zoom-out 14s ease-out infinite;
+  --animate-slide-in-right: slide-in-right 1s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 6s ease-out infinite;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Utility to hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+.animate-image {
+  animation: transition 0.8s ease-out;
+}
+
+/* globals.css */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  /* FAST */
+  70% {
+    transform: translateX(-40%);
+  }
+
+  /* SLOW (your focus area) */
+  85% {
+    transform: translateX(-45%);
+  }
+
+  /* END exactly at half */
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+
+.animate-scroll {
+  animation: scroll 12s linear infinite;
+}
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-fade-in {
+  animation: slideFadeIn 0.8s ease-out forwards;
 }
