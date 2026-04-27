@@ -39,23 +39,22 @@ export default function Projects() {
   ];
 
   return (
-    <section className="w-full bg-[#FFF8EF] py-20">
-      <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row items-center gap-16 px-6 lg:px-16">
+    <section id="projects" className="custom-container min-h-screen bg-[#FFF8EF] py-20">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 px-6 lg:px-16">
         
         {/* LEFT */}
         <div className="lg:w-[35%] space-y-6">
-          <h2 className="text-4xl md:text-5xl font-light text-[#2d2d2d]">
+          <h2 className="font-[500] text-4xl md:text-5xl text-[#2d2d2d]">
             Our Projects
           </h2>
 
-          <p className="text-[#6b6b6b]">
-            We create refined, functional spaces where aesthetics meet purpose.
-            Each project is a dialogue between form and feeling.
+          <p className="text-[#5C5C5C] font-400">
+            we create refined, functionalspaces here aesthetics meet purpose. Each project is a dialogue between form and feeling - crfted with precision, shaped by context, and inspired by timeless design principles.
           </p>
 
           <button
             onClick={() => setIsFormOpen(true)}
-            className="font-semibold px-6 py-2 border border-[#C78800] text-[#C78800] text-xs uppercase hover:bg-[#fff3e4] transition"
+            className="cursor-pointer font-semibold px-9 py-4 border border-[#C78800] text-[#C78800] text-xs uppercase hover:bg-[#fff3e4] transition"
           >
             VIEW ALL
           </button>
@@ -67,7 +66,7 @@ export default function Projects() {
           {/* Prev Button */}
           <button
             onClick={() => scroll("prev")}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 
+            className="cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 z-10 
                       w-10 h-10 flex items-center justify-center
                       bg-white rounded-full shadow-md text-xl"
           >
@@ -77,7 +76,7 @@ export default function Projects() {
           {/* Next Button */}
           <button
             onClick={() => scroll("next")}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 
+            className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 z-10 
                       w-10 h-10 flex items-center justify-center
                       bg-white rounded-full shadow-md text-xl"
           >

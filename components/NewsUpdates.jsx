@@ -28,7 +28,7 @@ export default function NewsUpdates() {
           News & Updates
         </h2>
 
-        <button className="font-[600] px-5 py-2 border border-[#C78800] text-[#C78800] text-xs tracking-widest uppercase">
+        <button className="cursor-pointer font-[600] px-5 py-2 border border-[#C78800] text-[#C78800] text-xs tracking-widest uppercase">
           View All
         </button>
       </div>

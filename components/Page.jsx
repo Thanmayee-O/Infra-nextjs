@@ -1,22 +1,20 @@
-export default function Page(){
-    return(
-        <div className="relative w-full h-screen overflow-hidden">
+export default function VideoSection() {
+  return (
+    <section className="bg-black py-20 flex justify-center items-center">
+      
+      {/* Video Container */}
+      <div className="w-[90vw] overflow-hidden shadow-lg">
+        
         <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-        <source src="/video.mp4" type="video/mp4" />
-     </video>
+          src="/video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-    {/* Overlay content */}
-    <div className="relative z-10 text-white">
-
-    </div>
-    </div>
-    )
+    </section>
+  );
 }
-
-

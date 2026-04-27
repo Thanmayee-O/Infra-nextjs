@@ -30,45 +30,49 @@ const reviews = [
 
 export default function ReviewsSlider() {
   return (
-    <section className="w-full bg-[#FFF8EF] py-20">
+    <section className="w-full bg-[#FFF8EF] py-12 md:py-20">
 
       {/* Heading */}
-      <h2 className="text-center text-4xl text-gray-800 mb-16">
+      <h2 className="text-center text-2xl md:text-4xl text-gray-800 mb-10 md:mb-16">
         Our Client Reviews
       </h2>
 
       {/* Scroll Container */}
       <div className="overflow-x-auto no-scrollbar snap-x snap-mandatory">
-        <div className="flex gap-10 w-[1922px] px-6">
+        <div className="
+          flex gap-4 md:gap-10 
+          w-auto md:w-[1922px] 
+          px-4 md:px-6
+        ">
 
           {reviews.map((item, index) => (
             <div
               key={index}
               className="
-                w-[940px]
-                min-h-[420px]
+                w-[85%] sm:w-[70%] md:w-[940px]
+                min-h-[320px] md:min-h-[420px]
                 bg-[#F9F9F9]
                 border border-[#E0D6C3]
-                p-[80px]
+                p-5 sm:p-6 md:p-[80px]
                 flex flex-col
                 justify-between
-                gap-10
+                gap-6 md:gap-10
                 shrink-0
                 snap-start
               "
             >
               {/* Title */}
-              <h3 className="text-[#C78800] text-lg font-medium">
+              <h3 className="text-[#C78800] text-sm md:text-lg font-medium">
                 {item.title}
               </h3>
 
               {/* Quote */}
-              <p className="text-2xl leading-relaxed text-[#212121]">
+              <p className="text-base sm:text-lg md:text-2xl leading-relaxed text-[#212121]">
                 “{item.text}”
               </p>
 
               {/* Author */}
-              <p className="text-[#949494] italic text-lg">
+              <p className="text-[#949494] italic text-sm md:text-lg">
                 — {item.author}, Resident
               </p>
             </div>
@@ -78,8 +82,8 @@ export default function ReviewsSlider() {
       </div>
 
       {/* Button */}
-      <div className="flex justify-center mt-16">
-        <button className="px-6 py-2 border border-[#B88917] text-[#B88917] bg-[#F9F9F9]">
+      <div className="flex justify-center mt-10 md:mt-16">
+        <button className="px-6 py-3 md:px-9 md:py-4 border border-[#B88917] text-[#B88917] bg-[#F9F9F9]">
           VIEW ALL
         </button>
       </div>

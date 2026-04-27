@@ -6,10 +6,18 @@
 }
 
 /* Ensure full viewport coverage on mobile browsers with dynamic toolbars */
-html,
-body {
-  height: 100%;
+
+
+
+
+@layer components {
+  .container-custom {
+  @apply max-w-7xl mx-auto px-6 lg:px-8;
+
 }
+
+}
+
 
 html {
   height: -webkit-fill-available;

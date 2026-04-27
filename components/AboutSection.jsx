@@ -1,7 +1,9 @@
+"use client"
+
 export default function AboutSection() {
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-[#FDFBF7]">
-      <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <section className="relative py-22 overflow-hidden bg-[#FDFBF7]">
+      <div className="w-full h-screen mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-20 md:gap-24">
 
         {/* Left Side: Text Content */}
         <div className="w-full md:w-1/2 flex flex-col items-start z-10">
@@ -15,14 +17,17 @@ export default function AboutSection() {
             spaces that reflect the unique lifestyle and aspirations of our clients, ensuring every detail
             is meticulously planned and executed.
           </p>
-          <button className="px-8 py-3 text-xs md:text-sm font-bold uppercase tracking-widest text-[#D4AF37] border border-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-colors">
+          <button onClick={() => document.getElementById("contact").scrollIntoView()} className="cursor-pointer px-8 py-3 text-xs md:text-sm font-semibold uppercase tracking-widest text-[#D4AF37] border border-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-colors">
             Know More
           </button>
         </div>
 
         {/* Right Side: Animated Image */}
-        <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px] animate-slide-in-right">
+        <div  className="w-full md:w-1/2 relative h-[400px] md:h-[600px] animate-slide-in-right">
           <div
+            data-aos="fade-left"
+            data-aos-delay="200"
+            data-aos-duration="1000"
             className="absolute inset-0 w-full h-full bg-cover bg-center shadow-2xl"
             style={{
               backgroundImage: "url('https://res.cloudinary.com/dybw1km5u/image/upload/v1777091522/about_yvpx5x.jpg')"

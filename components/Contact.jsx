@@ -124,7 +124,7 @@ export default function Contact() {
           {/* Button */}
           <button
             type="submit"
-            className="w-full sm:w-auto bg-[#C78800] text-white px-6 py-3 text-sm font-medium hover:opacity-90 transition"
+            className="cursor-pointer w-full sm:w-auto bg-[#C78800] text-white px-6 py-3 text-sm font-medium hover:opacity-90 transition"
           >
             SUBMIT
           </button>

@@ -11,6 +11,9 @@ import NewsUpdates from '@/components/NewsUpdates';
 import ContactSection from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Page from '@/components/Page';
+import AOSWrapper from '@/components/AOSWrapper';
+import AnimatedWrapper from '@/components/AOSWrapper';
+
 
 
 export default function Home() {
@@ -20,18 +23,33 @@ export default function Home() {
       <QuoteSection />
       <AboutSection />
       <Page/>
-      <Projects />
-      <StackedScroll />
-      <div className="border-b border-white/10">
+      
+       <Projects />
+    
+    <AOSWrapper animation='fade-up' delay={200} duration={1000}>
+     <StackedScroll />
+     <div className="border-b border-white/10">
         <StatsSection />
       </div>
+    </AOSWrapper>
+      
       <div className="border-b border-white/10">
         <LogosSlider/>
       </div>
+      <AOSWrapper animation='fade-up' delay={200} duration={1000}>
       <OurServices />
+       </AOSWrapper>
+       <AOSWrapper animation='fade-right' delay={200} duration={1000}>
       <ClientReviews/>
+       </AOSWrapper>
+      <AOSWrapper animation='fade-up' delay={200} duration={1000}>
       <NewsUpdates/>
+       </AOSWrapper>
+      <AOSWrapper animation='fade-left' delay={200} duration={1000}>
       <ContactSection/>
+       </AOSWrapper>
+      
+      
       <div className="border-b border-white/10">
         <LogosSlider/>
       </div>

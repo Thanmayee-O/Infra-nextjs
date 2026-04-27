@@ -10,12 +10,13 @@ export default function Form({ isOpen, onClose }) {
     exit: "",
   });
 
-  const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("");
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
-  // animation trigger
+  // today date
+  const today = new Date().toISOString().split("T")[0];
+
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => setVisible(true), 10);
@@ -25,24 +26,18 @@ export default function Form({ isOpen, onClose }) {
   }, [isOpen]);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    const { name, value } = e.target;
 
-  const validate = () => {
-    let newErrors = {};
-
-    if (!form.hotel) newErrors.hotel = "Required";
-    if (!form.city) newErrors.city = "Required";
-    if (!form.room) newErrors.room = "Required";
-    if (!form.entry) newErrors.entry = "Required";
-    if (!form.exit) newErrors.exit = "Required";
-
-    if (form.entry && form.exit && form.entry >= form.exit) {
-      newErrors.exit = "Exit must be after entry";
+    // auto reset exit if invalid
+    if (name === "entry") {
+      setForm((prev) => ({
+        ...prev,
+        entry: value,
+        exit: prev.exit && prev.exit <= value ? "" : prev.exit,
+      }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
     }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
   const handleClose = () => {
@@ -55,44 +50,40 @@ export default function Form({ isOpen, onClose }) {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault(); // ✅ THIS IS WORKING
 
-  if (!validate()) {
-    setStatus("error");
-    return;
-  }
+    console.log("Form submitted"); // debug
 
-  try {
-    const res = await fetch("/api/form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({...form,entry: new Date(form.entry),exit: new Date(form.exit),})});
+    try {
+      const res = await fetch("/api/form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    console.log("API RESPONSE:", data); 
+      if (data.success) {
+        setStatus("success");
 
-    if (data.success === true) {
-      setStatus("success");
-
-      setTimeout(() => {
-        handleClose();
-      }, 800);
-    } else {
+        setTimeout(() => {
+          handleClose();
+        }, 800);
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.log(err);
       setStatus("error");
     }
-  } catch (err) {
-    console.log(err);
-    setStatus("error");
-  }
-};
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-
       <div
         className={`relative w-full max-w-md rounded-xl p-6 shadow-xl bg-[#FFF8EF] transform transition-all duration-500
         ${
@@ -105,6 +96,7 @@ export default function Form({ isOpen, onClose }) {
       >
         {/* Close */}
         <button
+          type="button"
           onClick={handleClose}
           className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
         >
@@ -123,12 +115,11 @@ export default function Form({ isOpen, onClose }) {
         )}
         {status === "error" && (
           <p className="text-red-500 text-center mb-2">
-            Something went wrong. Please try again.
+            Something went wrong
           </p>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-3">
-
           {/* Hotel */}
           <input
             type="text"
@@ -136,9 +127,9 @@ export default function Form({ isOpen, onClose }) {
             placeholder="Hotel Name"
             value={form.hotel}
             onChange={handleChange}
+            required
             className="w-full border p-2 rounded-md"
           />
-          {errors.hotel && <p className="text-red-500 text-xs">{errors.hotel}</p>}
 
           {/* City */}
           <input
@@ -147,44 +138,52 @@ export default function Form({ isOpen, onClose }) {
             placeholder="City"
             value={form.city}
             onChange={handleChange}
+            required
             className="w-full border p-2 rounded-md"
           />
-          {errors.city && <p className="text-red-500 text-xs">{errors.city}</p>}
 
           {/* Room */}
           <select
             name="room"
             value={form.room}
             onChange={handleChange}
+            required
             className="w-full border p-2 rounded-md"
           >
             <option value="">Room Size</option>
-            {[1,2,3,4,5,6].map(n => (
-              <option key={n} value={n}>{n} Room</option>
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <option key={n} value={n}>
+                {n} Room
+              </option>
             ))}
           </select>
-          {errors.room && <p className="text-red-500 text-xs">{errors.room}</p>}
 
-          {/* Dates */}
+          {/* Check-in */}
           <input
             type="date"
             name="entry"
             value={form.entry}
             onChange={handleChange}
+            min={today}
+            required
             className="w-full border p-2 rounded-md"
           />
-          {errors.entry && <p className="text-red-500 text-xs">{errors.entry}</p>}
 
+          {/* Check-out */}
           <input
             type="date"
             name="exit"
             value={form.exit}
             onChange={handleChange}
+            min={form.entry || today}
+            required
             className="w-full border p-2 rounded-md"
           />
-          {errors.exit && <p className="text-red-500 text-xs">{errors.exit}</p>}
 
-          <button className="w-full bg-[#C6902B] text-white py-2 rounded-md">
+          <button
+            type="submit"
+            className="w-full bg-[#C6902B] text-white py-2 rounded-md"
+          >
             Submit
           </button>
         </form>

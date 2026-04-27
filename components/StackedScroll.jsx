@@ -9,17 +9,17 @@ export default function StackedScroll() {
     <div className="relative">
 
       {/* Section 1 */}
-      <div className="sticky top-0 z-10">
+      <div className="md:h-screen md:sticky md:top-0 z-10">
         <LacasaVilla />
       </div>
 
       {/* Section 2 */}
-      <div className="sticky top-0 z-20">
+      <div className="md:h-screen md:sticky md:top-0 z-20">
         <RiverEdge />
       </div>
 
       {/* Section 3 */}
-      <div className="sticky top-0 z-30">
+      <div className="md:h-screen md:sticky md:top-0 z-30">
         <SkylineHeights />
       </div>
 

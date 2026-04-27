@@ -1,94 +1,87 @@
 export default function Footer() {
   return (
     <footer className="w-full bg-[#1a1a1a] border-t border-blue-500/30">
+      
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
-        {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
+        
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 text-center md:text-left">
           
           {/* Column 1 - Logo */}
-          <div className="flex items-start">
-            <div className="text-3xl md:text-4xl font-bold">
-                <img src="https://res.cloudinary.com/dybw1km5u/image/upload/v1777143162/Group_2_omm0ry.png"/>
-            </div>
+          <div className="flex justify-center md:justify-start">
+            <img
+              src="https://res.cloudinary.com/dybw1km5u/image/upload/v1777143162/Group_2_omm0ry.png"
+              className="w-full h-20 md:h-[100px]"
+            />
           </div>
 
-          {/* Column 2 - Navigation Links */}
-          <div className="flex flex-col space-y-6">
-            <nav className="flex flex-col gap-[32px] ml-14">
-              <a href="#about" className="text-[#F9F9F9] hover:text-white transition-colors duration-300 text-[20px] md:text-base">
+          {/* Column 2 - Navigation */}
+          <div className="flex flex-col items-center md:items-start">
+            <nav className="flex flex-col gap-4 md:gap-[32px] md:ml-14">
+              <a href="#about" className="text-[#F9F9F9] text-base md:text-[20px]">
                 ABOUT US
               </a>
-              <a href="#projects" className="text-[#F9F9F9] hover:text-white transition-colors duration-300 text-[20px] md:text-base">
+              <a href="#projects" className="text-[#F9F9F9] text-base md:text-[20px]">
                 PROJECTS
               </a>
-              <a href="#contact" className="text-[#F9F9F9] hover:text-white transition-colors duration-300 text-[20px] md:text-base">
+              <a href="#contact" className="text-[#F9F9F9] text-base md:text-[20px]">
                 CONTACT US
               </a>
-              <a href="#services" className="text-[#F9F9F9] hover:text-white transition-colors duration-300 text-[20px] md:text-base">
+              <a href="#services" className="text-[#F9F9F9] text-base md:text-[20px]">
                 SERVICES
               </a>
             </nav>
           </div>
 
-          {/* Column 3 - Contact Information */}
-          <div className="flex flex-col space-y-2">
-            <div className="space-y-6">
-              <div>
-                <p className="text-[#F9F9F9] text-[20px] md:text-base leading-relaxed">
-                  Plot No:32, Sy.No:135, Brindavan Colony Gangapet road, SR Dist. Hyderabad - 500075, Telangana
-                </p>
-              </div>
-              <div>
-                <a href="mailto:mailustto@einfra.com" className="text-[#F9F9F9] text-[20px] font-[500] text-sm md:text-base">
-                  mailustto@einfra.com
-                </a>
-              </div>
-              <div>
-                <a href="tel:+918974600000" className="text-[#F9F9F9] text-[20px] font-[500] text-sm md:text-base">
-                  +91-897466XXXX
-                </a>
-              </div>
-            </div>
+          {/* Column 3 - Contact */}
+          <div className="space-y-4 md:space-y-6">
+            <p className="text-[#F9F9F9] text-sm md:text-[20px] leading-relaxed">
+              Plot No:32, Sy.No:135, Brindavan Colony Gangapet road, SR Dist. Hyderabad - 500075, Telangana
+            </p>
+
+            <a href="mailto:mailustto@einfra.com" className="text-[#F9F9F9] text-sm md:text-[20px] font-medium">
+              mailustto@einfra.com
+            </a>
+
+            <a href="tel:+918974600000" className="text-[#F9F9F9] text-sm md:text-[20px] font-medium">
+              +91-897466XXXX
+            </a>
           </div>
 
-          {/* Column 4 - Social Links */}
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-white font-[500] text-sm md:text-base mb-2">Follow us on</h3>
-            <div className="flex flex-col space-y-3">
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#F9F9F9] hover:text-blue-400 transition-colors duration-300 text-sm md:text-base flex items-center gap-2"
-              >
-                Instagram <span className="text-xl">↗</span>
+          {/* Column 4 - Social */}
+          <div className="space-y-4">
+            <h3 className="text-white font-medium text-sm md:text-base">
+              Follow us on
+            </h3>
+
+            <div className="flex flex-col gap-3 items-center md:items-start">
+              <a href="#" className="text-[#F9F9F9] text-sm md:text-base flex items-center gap-2">
+                Instagram ↗
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#F9F9F9] hover:text-blue-400 transition-colors duration-300 text-sm md:text-base flex items-center gap-2"
-              >
-                Linkedin <span className="text-xl">↗</span>
+              <a href="#" className="text-[#F9F9F9] text-sm md:text-base flex items-center gap-2">
+                Linkedin ↗
               </a>
             </div>
           </div>
 
         </div>
-        
       </div>
+
+      {/* Divider */}
       <div className="w-full h-[1px] bg-gray-900"></div>
 
-      {/* Bottom Footer Bar */}
-      <div className="w-full bg-[#949494] text-[16px] flex justify-between items-center px-6 md:px-16 lg:px-32 py-3">
-  
-          <span className="text-[#C78800] font-normal">
-            © E-INFRA 2026
-          </span>
-          <span className="text-[#C78800] font-normal">
-            Legal, Privacy, Cookies, Settings
-          </span>
+      {/* Bottom Bar */}
+      <div className="w-full bg-[#6B6B6B] text-[14px] md:text-[16px] flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0 px-6 md:px-16 lg:px-32 py-3 text-center md:text-left">
+        
+        <span className="text-[#C78800]">
+          © E-INFRA 2026
+        </span>
+
+        <span className="text-[#C78800]">
+          Legal, Privacy, Cookies, Settings
+        </span>
+
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 import "./globals.css";
-import StaggerWrapper from '../components/StaggerWrapper';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import AOSProvider from "@/components/AOSProvider";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -14,10 +14,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${jakarta.variable} ${jakarta.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <StaggerWrapper>
+      <body className="w-full min-h-screen overflow-x-hidden">
+        <AOSProvider>
           {children}
-        </StaggerWrapper>
+        </AOSProvider>
       </body>
     </html>
   );
