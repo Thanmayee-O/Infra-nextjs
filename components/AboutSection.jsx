@@ -2,8 +2,8 @@
 
 export default function AboutSection() {
   return (
-    <section className="relative py-22 overflow-hidden bg-[#FDFBF7]">
-      <div className="w-full h-screen mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-20 md:gap-24">
+    <section className="relative py-16 md:py-22 overflow-hidden bg-[#FDFBF7]">
+      <div className="w-full mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-10 md:gap-24 md:min-h-[85vh]">
 
         {/* Left Side: Text Content */}
         <div className="w-full md:w-1/2 flex flex-col items-start z-10">
@@ -23,7 +23,7 @@ export default function AboutSection() {
         </div>
 
         {/* Right Side: Animated Image */}
-        <div  className="w-full md:w-1/2 relative h-[400px] md:h-[600px] animate-slide-in-right">
+        <div  className="w-full md:w-1/2 relative h-[280px] sm:h-[360px] md:h-[600px] animate-slide-in-right">
           <div
             data-aos="fade-left"
             data-aos-delay="200"

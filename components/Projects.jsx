@@ -39,7 +39,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="custom-container min-h-screen bg-[#FFF8EF] py-20">
+    <section id="projects" className="w-full overflow-x-hidden min-h-screen bg-[#FFF8EF] py-16 md:py-20">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 px-6 lg:px-16">
         
         {/* LEFT */}

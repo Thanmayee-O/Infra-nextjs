@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${jakarta.variable} ${jakarta.className} h-full antialiased`}
     >
-      <body className="w-full min-h-screen overflow-x-hidden">
+      <body className="w-full min-h-screen overflow-x-hidden max-w-full">
         <AOSProvider>
           {children}
         </AOSProvider>

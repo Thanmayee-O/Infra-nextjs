@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero';
 import QuoteSection from '@/components/QuoteSection';
-import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
 import OurServices from '@/components/OurServices';
 import Projects from '@/components/Projects';
@@ -18,42 +17,38 @@ import AnimatedWrapper from '@/components/AOSWrapper';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FDFBF7]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FDFBF7]">
       <Hero />
       <QuoteSection />
       <AboutSection />
-      <Page/>
-      
-       <Projects />
-    
-    <AOSWrapper animation='fade-up' delay={200} duration={1000}>
-     <StackedScroll />
-     <div className="border-b border-white/10">
-        <StatsSection />
-      </div>
-    </AOSWrapper>
-      
+      <Page />
+
+      <Projects />
+
+      <StackedScroll />
+
+
       <div className="border-b border-white/10">
-        <LogosSlider/>
+        <LogosSlider />
       </div>
       <AOSWrapper animation='fade-up' delay={200} duration={1000}>
-      <OurServices />
-       </AOSWrapper>
-       <AOSWrapper animation='fade-right' delay={200} duration={1000}>
-      <ClientReviews/>
-       </AOSWrapper>
+        <OurServices />
+      </AOSWrapper>
+      <AOSWrapper animation='fade-right' delay={200} duration={1000}>
+        <ClientReviews />
+      </AOSWrapper>
       <AOSWrapper animation='fade-up' delay={200} duration={1000}>
-      <NewsUpdates/>
-       </AOSWrapper>
+        <NewsUpdates />
+      </AOSWrapper>
       <AOSWrapper animation='fade-left' delay={200} duration={1000}>
-      <ContactSection/>
-       </AOSWrapper>
-      
-      
+        <ContactSection />
+      </AOSWrapper>
+
+
       <div className="border-b border-white/10">
-        <LogosSlider/>
+        <LogosSlider />
       </div>
-      <Footer/>
+      <Footer />
     </main>
   );
 }

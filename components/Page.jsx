@@ -1,6 +1,6 @@
 export default function VideoSection() {
   return (
-    <section className="bg-black py-20 flex justify-center items-center">
+    <section className="bg-black py-12 md:py-20 flex justify-center items-center overflow-hidden w-full">
       
       {/* Video Container */}
       <div className="w-[90vw] overflow-hidden shadow-lg">

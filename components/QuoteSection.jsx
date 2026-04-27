@@ -1,6 +1,6 @@
 export default function QuoteSection() {
   return (
-    <section className="relative custom-container max-w-full py-24 md:py-32 px-6 md:px-16 bg-[#FFF8EF] text-[#1A1A1A] flex items-center justify-center">
+    <section className="relative w-full py-16 md:py-24 lg:py-32 px-6 md:px-16 bg-[#FFF8EF] text-[#1A1A1A] flex items-center justify-center overflow-hidden">
       
       {/* Vertical Contact Link */}
       <div className="absolute right-8 top-1/3 -translate-y-1/2 rotate-270 origin-right hidden lg:block text-xs text-gray-400 uppercase">

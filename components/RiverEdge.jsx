@@ -1,6 +1,6 @@
 export default function RiverEdge() {
   return (
-    <div className="relative w-full min-h-screen md:h-screen bg-[url('https://res.cloudinary.com/dybw1km5u/image/upload/v1777119893/river_imggg_wwgug2.avif')] bg-cover bg-center flex items-center px-5 sm:px-10 md:px-20 text-white overflow-hidden">
+    <div className="relative w-full min-h-screen md:h-screen bg-[url('https://res.cloudinary.com/dybw1km5u/image/upload/v1777119893/river_imggg_wwgug2.avif')] bg-cover bg-center flex items-center px-5 sm:px-10 md:px-20 text-white overflow-hidden" style={{boxShadow: '0 -12px 40px rgba(0,0,0,0.5)'}}>
 
       <div className="absolute inset-0 bg-black/50"></div>
 

@@ -38,18 +38,20 @@ export default function ReviewsSlider() {
       </h2>
 
       {/* Scroll Container */}
-      <div className="overflow-x-auto no-scrollbar snap-x snap-mandatory">
-        <div className="
-          flex gap-4 md:gap-10 
-          w-auto md:w-[1922px] 
-          px-4 md:px-6
-        ">
-
+      <div className="overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth">
+        <div
+          className="
+            flex gap-4 md:gap-10
+            w-max
+            px-4 md:px-6
+          "
+        >
           {reviews.map((item, index) => (
             <div
               key={index}
               className="
-                w-[85%] sm:w-[70%] md:w-[940px]
+                min-w-[85vw] sm:min-w-[70vw] md:min-w-[600px] lg:min-w-[940px]
+                max-w-[85vw] sm:max-w-[70vw] md:max-w-[600px] lg:max-w-[940px]
                 min-h-[320px] md:min-h-[420px]
                 bg-[#F9F9F9]
                 border border-[#E0D6C3]
@@ -58,7 +60,11 @@ export default function ReviewsSlider() {
                 justify-between
                 gap-6 md:gap-10
                 shrink-0
-                snap-start
+                snap-center
+                overflow-hidden
+
+                transition-all duration-500 ease-out
+                hover:scale-[1.02]
               "
             >
               {/* Title */}
@@ -77,7 +83,6 @@ export default function ReviewsSlider() {
               </p>
             </div>
           ))}
-
         </div>
       </div>
 

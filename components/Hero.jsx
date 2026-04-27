@@ -22,17 +22,17 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* NAVBAR */}
-      <nav className="absolute top-0 left-0 w-full z-20 px-4 sm:px-6 md:px-12 py-3 md:py-4 text-white border-b border-white/20">
+      <nav className="absolute top-0 left-0 w-full z-20 text-white border-b border-white/20">
 
-        <div className="flex items-center justify-between">
+        <div className="container-custom flex items-center justify-between text-white py-3 md:py-4">
 
           {/* Logo */}
-          <img
-            onClick={() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" })}
-            src="https://res.cloudinary.com/dybw1km5u/image/upload/v1777143162/Group_2_omm0ry.png"
-            className="h-[30px] sm:h-[35px] md:h-[40px]"
-            alt="Logo"
-          />
+         <div className="ml-3">
+            <img
+              src="https://res.cloudinary.com/dybw1km5u/image/upload/v1777143162/Group_2_omm0ry.png" alt="logo"
+              className="h-[40px]"
+            />
+          </div>
 
           {/* Right Side */}
           <div className="flex items-center gap-6 md:gap-8">

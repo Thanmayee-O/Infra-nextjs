@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="flex justify-center md:justify-start">
             <img
               src="https://res.cloudinary.com/dybw1km5u/image/upload/v1777143162/Group_2_omm0ry.png"
-              className="w-full h-20 md:h-[100px]"
+              className="h-16 md:h-[100px] w-auto max-w-[200px]"
             />
           </div>
 

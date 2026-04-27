@@ -12,7 +12,7 @@
 
 @layer components {
   .container-custom {
-  @apply max-w-7xl mx-auto px-6 lg:px-8;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 
 }
 
@@ -21,6 +21,8 @@
 
 html {
   height: -webkit-fill-available;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @theme inline {
@@ -38,6 +40,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
 }
 
 @theme inline {

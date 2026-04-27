@@ -42,7 +42,7 @@ export default function Services() {
 
   return (
     <section className="w-full bg-[#212121] min-h-screen px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-16 md:py-24">
-      
+
       {/* Heading */}
       <h2 className="
         text-white text-center uppercase
@@ -75,7 +75,7 @@ export default function Services() {
             >
 
               {/* Text */}
-              
+
               <div className="flex-1 md:pr-16 z-10">
                 <h3 className="
                   text-white font-semibold
