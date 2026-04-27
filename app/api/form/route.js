@@ -9,11 +9,10 @@ export async function POST(req) {
 
     const { room, entry, exit } = data;
 
-    // ✅ Convert to Date
+
     const entryDate = new Date(entry);
     const exitDate = new Date(exit);
 
-    // ✅ Check overlapping booking
     const existingBooking = await Booking.findOne({
       room: Number(room),
       entry: { $lt: exitDate },
@@ -27,7 +26,6 @@ export async function POST(req) {
       });
     }
 
-    // ✅ Save booking
     const booking = await Booking.create({
       ...data,
       room: Number(room),
@@ -40,7 +38,7 @@ export async function POST(req) {
       booking,
     });
   } catch (err) {
-    console.log("API ERROR:", err); // 🔥 debug
+    console.log("API ERROR:", err); 
 
     return Response.json({
       success: false,

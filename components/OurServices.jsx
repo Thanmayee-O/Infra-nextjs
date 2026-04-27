@@ -81,7 +81,6 @@ export default function Services() {
                   text-white font-semibold
                   text-base sm:text-lg md:text-xl lg:text-2xl
                   mb-2 sm:mb-3
-                  hover:translate-x-1 ease-in duration-300
                   transition-colors duration-300
                   tracking-wide
                 ">
@@ -89,7 +88,6 @@ export default function Services() {
                 </h3>
                 <p className="
                   text-white/40 text-xs sm:text-sm
-  
                   leading-relaxed
                   max-w-md
                 ">

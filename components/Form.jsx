@@ -10,11 +10,11 @@ export default function Form({ isOpen, onClose }) {
     exit: "",
   });
 
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(""); // success | error
+  const [message, setMessage] = useState("");
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
-  // today date
   const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
@@ -28,7 +28,6 @@ export default function Form({ isOpen, onClose }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // auto reset exit if invalid
     if (name === "entry") {
       setForm((prev) => ({
         ...prev,
@@ -45,14 +44,27 @@ export default function Form({ isOpen, onClose }) {
     setTimeout(() => {
       onClose();
       setClosing(false);
+
+      // ✅ RESET FORM DATA
+      setForm({
+        hotel: "",
+        city: "",
+        room: "",
+        entry: "",
+        exit: "",
+      });
+
+      // ✅ RESET STATUS
       setStatus("");
+      setMessage("");
     }, 400);
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ✅ THIS IS WORKING
+    e.preventDefault();
 
-    console.log("Form submitted"); // debug
+    setStatus("");
+    setMessage("");
 
     try {
       const res = await fetch("/api/form", {
@@ -67,16 +79,17 @@ export default function Form({ isOpen, onClose }) {
 
       if (data.success) {
         setStatus("success");
+        setMessage("Submitted successfully!");
 
-        setTimeout(() => {
-          handleClose();
-        }, 800);
+        // close after success
+        setTimeout(() => handleClose(), 800);
       } else {
         setStatus("error");
+        setMessage(data.message || "Submission failed");
       }
     } catch (err) {
-      console.log(err);
       setStatus("error");
+      setMessage(err.message || "Something went wrong");
     }
   };
 
@@ -107,20 +120,17 @@ export default function Form({ isOpen, onClose }) {
           Book Your Stay
         </h2>
 
-        {/* Status */}
+        {/* Messages */}
         {status === "success" && (
-          <p className="text-green-600 text-center mb-2">
-            Submitted successfully!
-          </p>
-        )}
-        {status === "error" && (
-          <p className="text-red-500 text-center mb-2">
-            Something went wrong
-          </p>
+          <p className="text-green-600 text-center mb-2">{message}</p>
         )}
 
+        {status === "error" && (
+          <p className="text-red-500 text-center mb-2">{message}</p>
+        )}
+
+        {/* FORM */}
         <form onSubmit={handleSubmit} className="space-y-3">
-          {/* Hotel */}
           <input
             type="text"
             name="hotel"
@@ -131,7 +141,6 @@ export default function Form({ isOpen, onClose }) {
             className="w-full border p-2 rounded-md"
           />
 
-          {/* City */}
           <input
             type="text"
             name="city"
@@ -142,7 +151,6 @@ export default function Form({ isOpen, onClose }) {
             className="w-full border p-2 rounded-md"
           />
 
-          {/* Room */}
           <select
             name="room"
             value={form.room}
@@ -153,12 +161,12 @@ export default function Form({ isOpen, onClose }) {
             <option value="">Room Size</option>
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <option key={n} value={n}>
-                {n} Room
+                {n}
               </option>
             ))}
           </select>
 
-          {/* Check-in */}
+          <label className="text-sm text-gray-600">Check-in Date</label>
           <input
             type="date"
             name="entry"
@@ -169,7 +177,7 @@ export default function Form({ isOpen, onClose }) {
             className="w-full border p-2 rounded-md"
           />
 
-          {/* Check-out */}
+          <label className="text-sm text-gray-600">Check-out Date</label>
           <input
             type="date"
             name="exit"
@@ -182,7 +190,7 @@ export default function Form({ isOpen, onClose }) {
 
           <button
             type="submit"
-            className="w-full bg-[#C6902B] text-white py-2 rounded-md"
+            className="w-full bg-[#C6902B] text-white py-2 rounded-md hover:opacity-90 transition"
           >
             Submit
           </button>
